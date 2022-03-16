@@ -29,32 +29,39 @@ using namespace std;
  */
 class Solution {
 public:
-	map<int, int> inorder_map;
-	vector<int>preorder1;
-	vector<int>inorder1;
-	TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
-		preorder1 = preorder;
-		inorder1 = inorder;
-		for (int i = 0; i < inorder.size(); i++)
+	int cuttingRope(int n) {
+		if (2 == n)
 		{
-			inorder_map.insert(make_pair(inorder[i], i));
+			return 1;
 		}
-		return childTree(0, 0, inorder.size() - 1);
-
-	}
-
-	TreeNode* childTree(int root, int left, int right)
-	{
-		if (left > right)
+		if (n == 3)
 		{
-			return NULL;
+			return 2;
 		}
-		TreeNode* retNode = new TreeNode(0);
-		retNode->val = preorder1[root];
-		int position = inorder_map[preorder1[root]];
-		retNode->left = childTree(root + 1, left, position - 1);
-		retNode->right = childTree(position + 1, position + 1, right);
-		return retNode;
+		if (4 == n)
+		{
+			return 4;
+		}
+		int count3 = 0;
+		int count4 = 0;
+		while (n > 3)
+		{
+			n = n - 3;
+			count3++;
+		}
+		if (1 == n)
+		{
+			count3--;
+			count4++;
+		}
+		int ret =  pow(3, count3)*pow(4, count4)*n  ;
+		for (int i = 1; i <= count3; i++)
+		{
+			ret = (  n) % 1000000007;
+		}
+		ret = ret * pow(4, count4)*n;
+		return ret % 1000000007;
+		return ret;
 	}
 };
 int main()

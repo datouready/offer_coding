@@ -23,7 +23,7 @@
     <ClCompile Include="剑指Offer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="剑指 Offer 07. 重建二叉树.cpp">
+    <ClCompile Include="剑指 Offer 14- II. 剪绳子 II.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
